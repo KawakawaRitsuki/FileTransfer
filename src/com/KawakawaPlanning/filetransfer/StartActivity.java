@@ -90,10 +90,11 @@ public class StartActivity extends Activity {
     
     public void login(){
   		Wait("ログイン");
-  		String a = null;
-  		a = idet.getText().toString();
-  		if (a == null){
+  		String id = null;
+  		id = idet.getText().toString();
+  		if (id.length() == 0){
  	        alert("入力エラー","IDが入力されていません。入力してください。");
+            waitDialog.dismiss();
   		}else{
  	        ParseUser.logInInBackground(idet.getText().toString(), pwet.getText().toString(), new LogInCallback() {
 		    public void done(ParseUser user, ParseException e) {
